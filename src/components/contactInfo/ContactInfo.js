@@ -4,7 +4,7 @@ import React from 'react';
 
 function ContactSection() {
   return (
-    <Container>
+    <Container id="Contact">
       <Typography variant="h2" gutterBottom>
         Contact me
       </Typography>

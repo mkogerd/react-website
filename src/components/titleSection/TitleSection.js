@@ -11,7 +11,7 @@ function TitleSection() {
       p: 3,
       pt: 8,
     }}>
-      <Grid container>
+      <Grid container id="About">
         <Grid item xs={12} sm={6}>
           <Typography align="left">
             Hi 👋, I'm Koger
