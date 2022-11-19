@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-scroll";
 import { 
   AppBar,
   Box,
@@ -5,7 +7,6 @@ import {
   Divider,
   Drawer,
   IconButton,
-  Link,
   List,
   ListItem,
   ListItemButton,
@@ -15,7 +16,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Menu } from "@mui/icons-material";
@@ -47,7 +47,7 @@ function NavigationBar() {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <Link href={`#${item}`}>
+          <Link key={item} to={item} spy={true} smooth={true} duration={500}>
             <ListItem key={item} disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
                 <ListItemText primary={item} />
@@ -78,7 +78,7 @@ function NavigationBar() {
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           {navItems.map((item) => (
-            <Link href={`#${item}`}>
+            <Link key={item} to={item} spy={true} smooth={true} duration={500}>
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
               </Button>

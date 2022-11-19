@@ -54,7 +54,7 @@ function Projects() {
         </Typography>
         <span>This section can contain a list of all of the projects.</span>
         <Grid container spacing={3}>
-          {projects.map(project => <ProjectThumbnail {...project} />)}
+          {projects.map(project => <ProjectThumbnail key={project.name} {...project} />)}
         </Grid>
     </Container>
   );
