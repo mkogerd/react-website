@@ -33,7 +33,6 @@ function NavigationBar() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
-  const drawerWidth = 240;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -62,8 +61,11 @@ function NavigationBar() {
 
   return (
     <AppBar position="sticky">
-
       <StyledToolbar>
+        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -73,9 +75,7 @@ function NavigationBar() {
         >
           <Menu />
         </IconButton>
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           {navItems.map((item) => (
             <Link href={`#${item}`}>
@@ -92,13 +92,14 @@ function NavigationBar() {
           // container={container}
           variant="temporary"
           open={mobileOpen}
+          anchor='right'
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', height: '100vh'},
           }}
         >
           {drawer}
