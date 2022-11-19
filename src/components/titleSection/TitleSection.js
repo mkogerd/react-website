@@ -8,10 +8,13 @@ function TitleSection() {
     <Container sx={{
       minHeight: "100vh",
       width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      display: "flex",
       p: 3,
       pt: 8,
     }}>
-      <Grid container id="About">
+      <Grid container id="About" alignItems="center">
         <Grid item xs={12} sm={6}>
           <Typography align="left">
             Hi 👋, I'm Koger
