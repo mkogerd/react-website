@@ -1,5 +1,6 @@
-import { Card, CardMedia, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, Card, Container, Grid, Typography } from "@mui/material";
+import React, { useState } from "react";
+import ReactCardFlip from 'react-card-flip';
 
 function Projects() {
   const projects = [
@@ -52,34 +53,72 @@ function Projects() {
         <Typography variant="h2" gutterBottom>
           Projects
         </Typography>
-        <span>This section can contain a list of all of the projects.</span>
         <Grid container spacing={3}>
-          {projects.map(project => <ProjectThumbnail key={project.name} {...project} />)}
+          {projects.map(project => <ProjectTile key={project.name} {...project} />)}
         </Grid>
     </Container>
   );
 }
 
-function ProjectThumbnail({name, description, summary, image}) {
+function ProjectTile({name, description, summary, image}) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsFlipped(!isFlipped);
+  }
+  
   return (
     <Grid item xs={12} sm={4} lg={3}>
-      <Card sx={{
-        backgroundImage: image,
-      }}>
-        <Typography variant="h3">
-          {name}
-        </Typography>
-        <Typography variant="body2">
-          {description}
-        </Typography>
-        <CardMedia
-          component="img"
-          height="140"
-          image={image}
-          alt={`thumbnail for "${name}" project`}
-        />
-      </Card>
+      <ReactCardFlip isFlipped={isFlipped} infinite={true}>
+        <ContainingCard className='card-front' onClick={handleClick} onMouseEnter={() => setIsFlipped(true)}>
+          <Box 
+            component='img'
+            src={image} 
+            alt={`thumbnail for "${name}" project`}
+            sx={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </ContainingCard>
+        <ContainingCard className='card-back' onClick={handleClick} onMouseLeave={() => setIsFlipped(false)}>
+          <Typography variant="h3">
+            {name}
+          </Typography>
+          <Typography variant="body2">
+            {description}
+          </Typography>
+        </ContainingCard>
+      </ReactCardFlip>
     </Grid>
+  );
+}
+
+function ContainingCard({ onClick, onMouseEnter, onMouseLeave, children }) {
+  return (
+    <Box sx={{
+      height: 0,
+      width: '100%',
+      paddingBottom: '100%',
+      position: 'relative',
+      textAlign: 'left',
+    }}>
+      <Card
+        raised={true}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        {children}
+      </Card>
+    </Box>
   );
 }
 
