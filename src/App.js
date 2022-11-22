@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import './App.css';
 import Projects from 'components/projectsSection/Projects';
 import ContactSection from 'components/contactSection/ContactInfo';
 import NavigationBar from 'components/navigationBar/NavigationBar';
