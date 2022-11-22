@@ -1,4 +1,5 @@
 import { Box, Card, Container, Grid, Typography } from "@mui/material";
+import PaddedSection from "components/PaddedSection";
 import React, { useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 
@@ -49,7 +50,7 @@ const projects = [
 
 function Projects() {
   return (
-    <Box id="Projects" sx={{ bgcolor: 'background.secondary' }}>
+    <PaddedSection sectionName='Projects' useAltBackground={true}>
       <Container>
         <Typography variant="h2" gutterBottom>
           Projects
@@ -58,7 +59,7 @@ function Projects() {
           {projects.map(project => <ProjectTile key={project.name} {...project} />)}
         </Grid>
       </Container>
-    </Box>
+    </PaddedSection>
   );
 }
 
