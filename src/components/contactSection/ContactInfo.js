@@ -13,7 +13,7 @@ function ContactSection() {
         <Typography>
           Feel free to get in touch.
         </Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, pt: 1 }}>
           <CenteredLink href="https://www.linkedin.com/in/mkogerd">
             <LinkedIn />
             LinkedIn

@@ -52,7 +52,7 @@ function Projects() {
   return (
     <PaddedSection sectionName='Projects' useAltBackground={true}>
       <Container>
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom pb={3}>
           Projects
         </Typography>
         <Grid container spacing={3}>
@@ -87,12 +87,14 @@ function ProjectTile({name, description, summary, image}) {
           />
         </ContainingCard>
         <ContainingCard className='card-back' onClick={handleClick} onMouseLeave={() => setIsFlipped(false)}>
-          <Typography variant="h3">
-            {name}
-          </Typography>
-          <Typography variant="body2">
-            {description}
-          </Typography>
+          <Box p={3}>
+            <Typography variant="h3">
+              {name}
+            </Typography>
+            <Typography variant="body2">
+              {description}
+            </Typography>
+          </Box>
         </ContainingCard>
       </ReactCardFlip>
     </Grid>
