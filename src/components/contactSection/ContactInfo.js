@@ -6,7 +6,7 @@ import React from 'react';
 function ContactSection() {
   return (
     <PaddedSection sectionName='Contact'>
-      <Container sx={{ textAlign: 'center' }}>
+      <Container>
         <Typography variant="h2" gutterBottom>
           Contact me
         </Typography>

@@ -7,6 +7,7 @@ export default function PaddedSection({ sectionName, useAltBackground, children 
         bgcolor: useAltBackground ? 'background.secondary' : 'background.primary',
         paddingTop: 5,
         paddingBottom: 5,
+        textAlign: 'center',
       }}
     >
       {children}
