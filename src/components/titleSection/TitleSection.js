@@ -28,7 +28,15 @@ function TitleSection() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Box>
-              <img src="images/blank.png" alt="Portrait of Koger" width={"100%"} />
+              <img
+                src="images/portrait.png"
+                alt="Portrait of Koger"
+                width={"100%"}
+                style={{
+                  maskImage: 'linear-gradient(to top, transparent 0%, rgba(255,255,255,1) 50%)',
+                  WebkitMaskImage: 'linear-gradient(to top, transparent 0%, rgba(255,255,255,1) 50%)',
+                }}
+              />
             </Box>
           </Grid>
         </Grid>
