@@ -12,6 +12,7 @@ function TitleSection() {
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
+        paddingY: 8,
       }}>
         <Grid container id="About" alignItems="center">
           <Grid item xs={12} sm={6}>

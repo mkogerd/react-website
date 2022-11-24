@@ -1,31 +1,21 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { 
-  AppBar,
+  alpha,
   Box,
   Button,
-  Divider,
-  Drawer,
+  Container,
+  Fade,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  styled,
-  Toolbar,
-  Typography,
   useTheme,
 } from "@mui/material";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { Menu } from "@mui/icons-material";
+import { Brightness4, Brightness7, Menu } from "@mui/icons-material";
 
 import { ColorModeContext } from 'App';
-
-const StyledToolbar = styled(Toolbar)({
-  display: "flex",
-  justifyContent: "space-between",
-});
 
 const navItems = ['About', 'Projects', 'Contact'];
 
@@ -39,17 +29,23 @@ function NavigationBar() {
     setMobileOpen(!mobileOpen);
   };
   
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
+  const mobileNavMenu = (
+    <Box className='mobile-nav-menu' onClick={handleDrawerToggle}
+      sx={{
+        position: 'fixed',
+        display: { xs: 'block', sm: 'none' },
+        width: '100%',
+        height: '100%',
+        pt: theme.components.NavigationBar.height,
+        zIndex: 10,
+        bgcolor: 'background.default',
+      }}
+    >
       <List>
         {navItems.map((item) => (
-          <Link key={item} to={item} spy={true} smooth={true} duration={500}>
+          <Link key={item} to={item} spy={true} smooth={true} duration={500} onClick={handleDrawerToggle}>
             <ListItem key={item} disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemButton sx={{ textAlign: 'center', padding: 2 }}>
                 <ListItemText primary={item} />
               </ListItemButton>
             </ListItem>
@@ -60,52 +56,68 @@ function NavigationBar() {
   );
 
   return (
-    <AppBar position="sticky">
-      <StyledToolbar>
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
-
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
-        >
-          <Menu />
-        </IconButton>
-
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          {navItems.map((item) => (
-            <Link key={item} to={item} spy={true} smooth={true} duration={500}>
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            </Link>
-          ))}
-        </Box>
-      </StyledToolbar>
-
-      <Box component="nav">
-        <Drawer
-          // container={container}
-          variant="temporary"
-          open={mobileOpen}
-          anchor='right'
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+    <Box className='nav-wrapper'>
+      <Box className='navbar'
+        sx={{
+          height: '68px',
+          width: '100%',
+          zIndex: 20,
+          position: 'fixed',
+          display: 'flex',
+          alignItems: 'center',
+          bgcolor: alpha(theme.palette.background.secondary, 0.9),
+          WebkitBackdropFilter: 'blur(10px) contrast(180%)',
+          boxShadow: '0 2px 4px 0 rgba(0,0,0,.04),0 -1px 0 0 rgba(0,0,0,.08)',
+        }}
+      >
+        <Container
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', height: '100vh'},
+            display: 'flex',
+            justifyContent: 'flex-end',
           }}
         >
-          {drawer}
-        </Drawer>
+          <Box sx={{ 
+              display: { xs: 'none', sm: 'flex' },
+              alignItems: 'center',
+            }}
+          >
+            {navItems.map((item) => (
+              <Link key={item} to={item} spy={true} smooth={true} duration={500}>
+                <Button key={item} sx={{ px: 2 }}>
+                  {item}
+                </Button>
+              </Link>
+            ))}
+          </Box>
+
+          <IconButton
+            aria-label="toggle dark/light mode"
+            onClick={colorMode.toggleColorMode}
+            sx={{ p: 2 }}
+          >
+              {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+          </IconButton>
+
+          <IconButton
+            aria-label="open navigation menu"
+            onClick={handleDrawerToggle}
+            sx={{
+              display: { sm: 'none' },
+              p: 2,
+            }}
+          >
+            <Menu />
+          </IconButton>
+        </Container>
       </Box>
-    </AppBar>
+
+      <Fade
+        in={mobileOpen}
+        {...(mobileOpen ? { timeout: 500 } : {})}
+      >
+        { mobileNavMenu }
+      </Fade>
+    </Box>
   );
 }
 

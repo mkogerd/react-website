@@ -1,6 +1,11 @@
 import { createTheme } from "@mui/material";
 
 const baseThemeOptions = {
+  components: {
+    NavigationBar: {
+      height: '70px'
+    },
+  },
   typography: {
     h1: {
       fontSize: "2.5rem",
@@ -29,7 +34,7 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: 'white',
+      default: '#ffffff',
       secondary: '#f9f9f9',
       card: 'white',
     }
