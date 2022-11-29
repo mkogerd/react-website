@@ -13,7 +13,7 @@ function Projects() {
           Projects
         </Typography>
         <Grid container spacing={3}>
-          {PROJECT_DATA.map(project => <ProjectTile key={`${project.name}_2`} {...project} />)}
+          {PROJECT_DATA.map(project => <ProjectTile key={project.name} {...project} />)}
         </Grid>
       </Container>
     </PaddedSection>
