@@ -1,8 +1,9 @@
+import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
+
 import PROJECT_DATA from "appData/projectData";
 import PaddedSection from "components/PaddedSection";
-import React from "react";
-import ShadingTile from "./ShadingTile";
+import ProjectTile from "./ProjectTile";
 
 function Projects() {
   return (
@@ -12,7 +13,7 @@ function Projects() {
           Projects
         </Typography>
         <Grid container spacing={3}>
-          {PROJECT_DATA.map(project => <ShadingTile key={`${project.name}_2`} {...project} />)}
+          {PROJECT_DATA.map(project => <ProjectTile key={`${project.name}_2`} {...project} />)}
         </Grid>
       </Container>
     </PaddedSection>
