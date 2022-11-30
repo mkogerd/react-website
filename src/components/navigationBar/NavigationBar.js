@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  styled,
   useTheme,
 } from "@mui/material";
 import { Brightness4, Brightness7, Menu } from "@mui/icons-material";
@@ -30,17 +31,7 @@ function NavigationBar() {
   };
   
   const mobileNavMenu = (
-    <Box className='mobile-nav-menu' onClick={handleDrawerToggle}
-      sx={{
-        position: 'fixed',
-        display: { xs: 'block', sm: 'none' },
-        width: '100%',
-        height: '100%',
-        pt: theme.components.NavigationBar.height,
-        zIndex: 10,
-        bgcolor: 'background.default',
-      }}
-    >
+    <MobileNavMenu className='mobile-nav-menu' onClick={handleDrawerToggle}>
       <List>
         {navItems.map((item) => (
           <Link key={item} to={item} spy={true} smooth={true} duration={500} onClick={handleDrawerToggle}>
@@ -52,24 +43,12 @@ function NavigationBar() {
           </Link>
         ))}
       </List>
-    </Box>
+    </MobileNavMenu>
   );
 
   return (
     <Box className='nav-wrapper'>
-      <Box className='navbar'
-        sx={{
-          height: '68px',
-          width: '100%',
-          zIndex: 20,
-          position: 'fixed',
-          display: 'flex',
-          alignItems: 'center',
-          bgcolor: alpha(theme.palette.background.secondary, 0.9),
-          WebkitBackdropFilter: 'blur(10px) contrast(180%)',
-          boxShadow: '0 2px 4px 0 rgba(0,0,0,.04),0 -1px 0 0 rgba(0,0,0,.08)',
-        }}
-      >
+      <NavBar className='navbar'>
         <Container
           sx={{
             display: 'flex',
@@ -98,18 +77,11 @@ function NavigationBar() {
               {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
 
-          <IconButton
-            aria-label="open navigation menu"
-            onClick={handleDrawerToggle}
-            sx={{
-              display: { sm: 'none' },
-              p: 2,
-            }}
-          >
+          <MobileNavMenuButton aria-label="open navigation menu" onClick={handleDrawerToggle}>
             <Menu />
-          </IconButton>
+          </MobileNavMenuButton>
         </Container>
-      </Box>
+      </NavBar>
 
       <Fade
         in={mobileOpen}
@@ -120,5 +92,39 @@ function NavigationBar() {
     </Box>
   );
 }
+
+const MobileNavMenu = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  [theme.breakpoints.down('sm')]: {
+    display: 'block',
+  },
+  [theme.breakpoints.up('sm')]: {
+    display: 'none',
+  },
+  width: '100%',
+  height: '100%',
+  paddingTop: '70px',
+  zIndex: 10,
+  backgroundColor: theme.palette.background.default,
+}));
+
+const NavBar = styled(Box)(({ theme }) => ({
+  height: '68px',
+  width: '100%',
+  zIndex: 20,
+  position: 'fixed',
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor: alpha(theme.palette.background.secondary, 0.9),
+  WebkitBackdropFilter: 'blur(10px) contrast(180%)',
+  boxShadow: '0 2px 4px 0 rgba(0,0,0,.04),0 -1px 0 0 rgba(0,0,0,.08)',
+}));
+
+const MobileNavMenuButton = styled(IconButton)(({ theme }) => ({
+  [theme.breakpoints.up('sm')]: {
+    display: 'none',
+  },
+  padding: theme.spacing(2),
+}));
 
 export default NavigationBar;
