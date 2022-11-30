@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { AnimatePresence, motion } from "framer-motion";
 import { 
   alpha,
   Box,
   Button,
   Container,
-  Fade,
   IconButton,
   List,
   ListItem,
@@ -31,15 +31,22 @@ function NavigationBar() {
   };
   
   const mobileNavMenu = (
-    <MobileNavMenu className='mobile-nav-menu' onClick={handleDrawerToggle}>
+    <MobileNavMenu
+      className='mobile-nav-menu'
+      onClick={handleDrawerToggle}
+      variants={mobileNavMenuAnimationVariants}
+      initial='hidden'
+      animate='visible'
+      exit='exit'
+    >
       <List>
         {navItems.map((item) => (
           <Link key={item} to={item} spy={true} smooth={true} duration={500} onClick={handleDrawerToggle}>
-            <ListItem key={item} disablePadding>
+            <MobileNavListItem key={item} variants={mobileNavListItemAnimationVariants} disablePadding>
               <ListItemButton sx={{ textAlign: 'center', padding: 2 }}>
                 <ListItemText primary={item} />
               </ListItemButton>
-            </ListItem>
+            </MobileNavListItem>
           </Link>
         ))}
       </List>
@@ -83,17 +90,14 @@ function NavigationBar() {
         </Container>
       </NavBar>
 
-      <Fade
-        in={mobileOpen}
-        {...(mobileOpen ? { timeout: 500 } : {})}
-      >
-        { mobileNavMenu }
-      </Fade>
+      <AnimatePresence>
+        {mobileOpen && mobileNavMenu}
+      </AnimatePresence>
     </Box>
   );
 }
 
-const MobileNavMenu = styled(Box)(({ theme }) => ({
+const MobileNavMenu = motion(styled(Box)(({ theme }) => ({
   position: 'fixed',
   [theme.breakpoints.down('sm')]: {
     display: 'block',
@@ -106,7 +110,43 @@ const MobileNavMenu = styled(Box)(({ theme }) => ({
   paddingTop: '70px',
   zIndex: 10,
   backgroundColor: theme.palette.background.default,
-}));
+})));
+
+const mobileNavMenuAnimationVariants = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+      ease: 'linear',
+    }
+  },
+  hidden: {
+    opacity: 0,
+    x: 10,
+  },
+  exit: {
+    opacity: 0,
+    x: 10,
+  },
+}
+
+const MobileNavListItem = motion(ListItem);
+
+const mobileNavListItemAnimationVariants = {
+  visible: {
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'backOut',
+    },
+  },
+  hidden: {
+    scale: 0.75,
+    y: 50,
+  },
+}
 
 const NavBar = styled(Box)(({ theme }) => ({
   height: '68px',
