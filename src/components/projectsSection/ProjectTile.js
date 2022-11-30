@@ -1,10 +1,19 @@
 import { Box, Card, Grid, styled, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import React from "react";
 
 function ProjectTile({name, description, summary, image}) {
   return (
     <Grid item xs={12} sm={4} lg={3}>
-      <ProjectCardWrapper>
+      <ProjectCardWrapper
+        initial={{ opacity: 0, y: 100}}
+        transition={{
+          y: { duration: .5, ease: 'easeOut'},
+          opacity: { duration: 1, ease: 'easeOut'},
+        }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
         <ProjectCard raised={true}>
           <ProjectImage src={image} alt={`thumbnail for "${name}" project`} />
           <GradientVeil className='gradient-veil' />
@@ -23,12 +32,12 @@ function ProjectTile({name, description, summary, image}) {
 }
 
 // this wrapper is a hack to make all of the project tiles have the same height
-const ProjectCardWrapper = styled(Box)({
+const ProjectCardWrapper = motion(styled(Box)({
   height: 0,
   width: '100%',
   paddingBottom: '100%',
   position: 'relative',
-});
+}));
 
 const ProjectCard = styled(Card)({
   textAlign: 'left',
