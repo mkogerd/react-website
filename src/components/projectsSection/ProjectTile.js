@@ -6,13 +6,10 @@ function ProjectTile({name, description, summary, image}) {
   return (
     <Grid item xs={12} sm={4} lg={3}>
       <ProjectCardWrapper
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={projectCardWrapperAnimationVariants}
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
-        transition={{
-          y: { duration: .5, ease: 'easeOut'},
-          opacity: { duration: 1, ease: 'easeOut'},
-        }}
       >
         <ProjectCard raised={true}>
           <ProjectImage src={image} alt={`thumbnail for "${name}" project`} />
@@ -38,6 +35,27 @@ const ProjectCardWrapper = motion(styled(Box)({
   paddingBottom: '100%',
   position: 'relative',
 }));
+
+const projectCardWrapperAnimationVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      y: {
+        duration: .5,
+        ease: 'easeOut',
+      },
+      opacity: {
+        duration: 1,
+        ease: 'easeOut',
+      },
+    }
+  },
+  hidden: {
+    opacity: 0,
+    y: 100,
+  }
+}
 
 const ProjectCard = styled(Card)({
   textAlign: 'left',
