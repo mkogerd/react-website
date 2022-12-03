@@ -4,7 +4,7 @@ import React from "react";
 
 function ProjectTile({name, description, summary, image, technologies}) {
   return (
-    <Grid item xs={12} sm={4} lg={3}>
+    <Grid item xs={12} sm={6} lg={4}>
       <ProjectCardWrapper
         variants={projectCardWrapperAnimationVariants}
         initial='hidden'
