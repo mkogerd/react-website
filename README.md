@@ -24,7 +24,7 @@ For a comprehensive list of dependencies, see [package.json](./package.json)
 
 ## Features to add before launch
 
-- [ ] Rework the contact section to look better on mobile
+- [x] Rework the contact section to look better on mobile
 - [ ] *(Optional) Rework the contact section to include an email submission form*
 - [x] Add edge opacity to the portrait photo to better support dark mode
 - [ ] Update project data to include work experience, and filter out any not-so relevant projects
