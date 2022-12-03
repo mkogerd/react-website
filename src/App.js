@@ -5,7 +5,7 @@ import Projects from 'components/projectsSection/Projects';
 import ContactSection from 'components/contactSection/ContactInfo';
 import NavigationBar from 'components/navigationBar/NavigationBar';
 import TitleSection from 'components/titleSection/TitleSection';
-import { darkTheme, lightTheme } from 'Theme';
+import { darkTheme, lightTheme } from 'theme';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 

@@ -28,6 +28,6 @@ For a comprehensive list of dependencies, see [package.json](./package.json)
 - [ ] *(Optional) Rework the contact section to include an email submission form*
 - [x] Add edge opacity to the portrait photo to better support dark mode
 - [ ] Update project data to include work experience, and filter out any not-so relevant projects
-- [ ] Add pills to projects listing technologies used
+- [x] Add pills to projects listing technologies used
 - [ ] *(Optional) make tiles expand out into broader descriptions of the projects.*
 - [ ] *(Optional) Migrate to a more visually pleasing font*

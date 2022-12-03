@@ -2,7 +2,7 @@ import { Box, Card, Grid, styled, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 
-function ProjectTile({name, description, summary, image}) {
+function ProjectTile({name, description, summary, image, technologies}) {
   return (
     <Grid item xs={12} sm={4} lg={3}>
       <ProjectCardWrapper
@@ -21,6 +21,9 @@ function ProjectTile({name, description, summary, image}) {
             <Typography variant="body2">
               {description}
             </Typography>
+            <TechnologyLabels>
+              {technologies.map(tech => <TechLabel>{tech}</TechLabel>)}
+            </TechnologyLabels>
           </CardContent>
         </ProjectCard>
       </ProjectCardWrapper>
@@ -94,6 +97,9 @@ const GradientVeil = styled(Box)({
 });
 
 const CardContent = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  rowGap: theme.spacing(1),
   zIndex: 2,
   padding: theme.spacing(3),
   opacity: 0,
@@ -101,5 +107,21 @@ const CardContent = styled(Box)(({ theme }) => ({
   transition: 'opacity 300ms ease-in-out 0s, transform 300ms ease-in-out 0s;',
   color: 'white',
 }));
+
+const TechnologyLabels = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: theme.spacing(0.5),
+}));
+
+const TechLabel = styled('span')({
+  color: '#fffff',
+  background: '#666666',
+  borderRadius: '50px',
+  fontSize: '.5rem',
+  padding: '4px 10px',
+  lineHeight: '1.5',
+  boxShadow: '0 2px 4px 0 rgba(0,0,0,.04),0 -1px 0 0 rgba(0,0,0,.08)',
+});
 
 export default ProjectTile;
