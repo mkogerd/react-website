@@ -26,7 +26,7 @@ function ProjectTile({ project }) {
               {project.description}
             </Typography>
             <TechnologyLabels>
-              {project.technologies.map(tech => <TechLabel>{tech}</TechLabel>)}
+              {project.technologies.map(tech => <TechLabel key={tech}>{tech}</TechLabel>)}
             </TechnologyLabels>
           </CardContent>
         </ProjectCard>

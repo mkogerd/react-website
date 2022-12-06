@@ -64,7 +64,7 @@ function ProjectModal({ project, closeModal }) {
                     Technologies
                 </Typography>
                 <Box>
-                    {project.technologies.map(tech => <Chip label={tech} />)}
+                    {project.technologies.map(tech => <Chip key={tech} label={tech} />)}
                 </Box>
                 <ButtonGroup>
                     <Button startIcon={<GitHub />} href={project.repositoryLink} variant="outlined">
