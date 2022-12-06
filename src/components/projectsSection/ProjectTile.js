@@ -1,8 +1,12 @@
 import { Box, Card, Grid, styled, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
+
+import ProjectModal from "./ProjectModal";
 
 function ProjectTile({ project }) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <Grid item xs={12} sm={6} lg={4}>
       <ProjectCardWrapper
@@ -11,7 +15,7 @@ function ProjectTile({ project }) {
         whileInView='visible'
         viewport={{ once: true }}
       >
-        <ProjectCard raised={true}>
+        <ProjectCard raised={true} onClick={() => setShowModal(!showModal)}>
           <ProjectImage src={project.image} alt={`thumbnail for "${project.name}" project`} />
           <GradientVeil className='gradient-veil' />
           <CardContent className='card-content'>
@@ -27,6 +31,9 @@ function ProjectTile({ project }) {
           </CardContent>
         </ProjectCard>
       </ProjectCardWrapper>
+      <AnimatePresence>
+        { showModal && <ProjectModal project={project} setShow={setShowModal} /> }
+      </AnimatePresence>
     </Grid>
   );
 }
