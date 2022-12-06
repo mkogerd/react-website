@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const baseThemeOptions = {
   components: {
     NavigationBar: {
-      height: '70px'
+      height: '68px'
     },
   },
   typography: {

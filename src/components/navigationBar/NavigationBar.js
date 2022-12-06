@@ -149,7 +149,7 @@ const mobileNavListItemAnimationVariants = {
 }
 
 const NavBar = styled(Box)(({ theme }) => ({
-  height: '68px',
+  height: theme.components.NavigationBar.height,
   width: '100%',
   zIndex: 20,
   position: 'fixed',
