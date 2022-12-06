@@ -2,7 +2,7 @@ import { Box, Card, Grid, styled, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 
-function ProjectTile({name, description, summary, image, technologies}) {
+function ProjectTile({ project }) {
   return (
     <Grid item xs={12} sm={6} lg={4}>
       <ProjectCardWrapper
@@ -12,17 +12,17 @@ function ProjectTile({name, description, summary, image, technologies}) {
         viewport={{ once: true }}
       >
         <ProjectCard raised={true}>
-          <ProjectImage src={image} alt={`thumbnail for "${name}" project`} />
+          <ProjectImage src={project.image} alt={`thumbnail for "${project.name}" project`} />
           <GradientVeil className='gradient-veil' />
           <CardContent className='card-content'>
             <Typography variant="h3">
-              {name}
+              {project.name}
             </Typography>
             <Typography variant="body2">
-              {description}
+              {project.description}
             </Typography>
             <TechnologyLabels>
-              {technologies.map(tech => <TechLabel>{tech}</TechLabel>)}
+              {project.technologies.map(tech => <TechLabel>{tech}</TechLabel>)}
             </TechnologyLabels>
           </CardContent>
         </ProjectCard>
