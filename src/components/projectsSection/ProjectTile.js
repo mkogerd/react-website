@@ -32,7 +32,7 @@ function ProjectTile({ project }) {
         </ProjectCard>
       </ProjectCardWrapper>
       <AnimatePresence>
-        { showModal && <ProjectModal project={project} setShow={setShowModal} /> }
+        { showModal && <ProjectModal project={project} closeModal={() => setShowModal(false)} /> }
       </AnimatePresence>
     </Grid>
   );

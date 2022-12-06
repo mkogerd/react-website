@@ -3,31 +3,45 @@ import { ArrowBack, GitHub, Launch } from "@mui/icons-material";
 import { Button, Chip, Divider, GlobalStyles, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
-function ProjectModal({ project, setShow }) {
+function ProjectModal({ project, closeModal }) {
+    const modalRef = useRef(null);
+
     useEffect(() => {
+        // Close modal when escape key is pressed
         const handleKeyPress = (e) => {
             if (e.key === 'Escape') {
-                setShow(false);
+                closeModal();
             }
         };
         window.addEventListener('keydown', handleKeyPress);
 
+        // Close modal when the user clicks anywhere outside of it
+        const handleClickOutside = (e) => {
+            console.log(modalRef)
+            if (modalRef.current && !modalRef.current.contains(e.target)) {
+                closeModal();
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [setShow]);
+    }, [closeModal]);
 
     return (
         <Modal
+            ref={modalRef}
             variants={modalAnimationVariants}
             initial='hidden'
             animate='visible'
             exit='hidden'
         >
             {preventBodyScroll}
-            <Button onClick={() => setShow(false)}>
+            <Button onClick={closeModal}>
                 <ArrowBack />
                 return to projects
             </Button>
@@ -53,11 +67,11 @@ function ProjectModal({ project, setShow }) {
                     {project.technologies.map(tech => <Chip label={tech} />)}
                 </Box>
                 <ButtonGroup>
-                    <Button startIcon={<GitHub />} href={project.repositoryLink}>
+                    <Button startIcon={<GitHub />} href={project.repositoryLink} variant="outlined">
                         View Repository
                     </Button>
                     { project.demoLink && 
-                        <Button startIcon={<Launch />} href={project.demoLink}>
+                        <Button startIcon={<Launch />} href={project.demoLink} variant="outlined">
                             Check it out
                         </Button>
                     }
