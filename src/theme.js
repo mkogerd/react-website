@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import { deepmerge } from '@mui/utils';
 
 const baseThemeOptions = {
   components: {
@@ -28,26 +29,39 @@ const baseThemeOptions = {
       fontSize: "1rem"
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 550,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 };
 
-export const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-    background: {
-      default: '#ffffff',
-      secondary: '#f9f9f9',
-      card: 'white',
-    }
-  },
-}, baseThemeOptions);
+export const lightTheme = createTheme(
+  deepmerge({
+    palette: {
+      mode: "light",
+      background: {
+        default: '#ffffff',
+        secondary: '#f9f9f9',
+        card: 'white',
+      }
+    },
+  }, baseThemeOptions)
+);
 
-export const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    background: {
-      default: '#121212',
-      secondary: '#282828',
-      card: '#404040',
-    }
-  },
-}, baseThemeOptions);
+export const darkTheme = createTheme(
+  deepmerge({
+    palette: {
+      mode: "dark",
+      background: {
+        default: '#121212',
+        secondary: '#282828',
+        card: '#404040',
+      }
+    },
+  }, baseThemeOptions)
+);
