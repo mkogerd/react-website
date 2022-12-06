@@ -19,7 +19,6 @@ function ProjectModal({ project, closeModal }) {
 
         // Close modal when the user clicks anywhere outside of it
         const handleClickOutside = (e) => {
-            console.log(modalRef)
             if (modalRef.current && !modalRef.current.contains(e.target)) {
                 closeModal();
             }
