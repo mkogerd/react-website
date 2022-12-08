@@ -73,9 +73,11 @@ function ProjectModal({ project, closeModal }) {
             {project.technologies.map(tech => <Chip key={tech} label={tech} />)}
           </Box>
           <ButtonGroup>
-            <Button startIcon={<GitHub />} href={project.repositoryLink} variant="outlined">
-              View Repository
-            </Button>
+            { project.repositoryLink &&
+              <Button startIcon={<GitHub />} href={project.repositoryLink} variant="outlined">
+                View Repository
+              </Button>
+            }
             { project.demoLink &&
               <Button startIcon={<Launch />} href={project.demoLink} variant="outlined">
                 Check it out
