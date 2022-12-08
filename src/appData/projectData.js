@@ -2,17 +2,36 @@ const CPP = 'C++';
 const CSS = 'CSS';
 const EMBEDDED_SYSTEMS = 'Embedded Systems';
 const FLASK = 'Flask';
+const GRAPHQL = 'GraphQL';
 const HTML = 'HTML';
 const IOT = 'IOT';
 const JAVASCRIPT = 'Javascript';
 const MATLAB = 'MATLAB';
+const MONGO = 'MongoDB'
 const MYSQL = 'MySQL';
 const NODE = 'Node.js';
 const PHP = 'PHP';
+const PRESTO = 'Presto';
 const PYTHON = 'Python';
 const REACT = 'React';
+const RUBY = 'Ruby';
+const SIGNALFX = 'SignalFX';
+const SORBET = 'Sorbet';
+const SPLUNK = 'Splunk';
+const TERRAFORM = 'Terraform';
+const TYPESCRIPT = 'Typescript';
 
 const PROJECT_DATA = [
+  {
+    name: "Stripe Issuing",
+    description: "Create physical and virtual cards for your business.",
+    summary: "I spent a year working at Stripe on the issuing team. Some highlights of this were building out the Issuing Tokens API from scratch and improving monitoring, servicing, and reliability for Stripe Issuing disputes.",
+    imageThumbnail: "images/stripe-logo.png",
+    imageMain: "images/stripe-issuing.png",
+    technologies: [GRAPHQL, MONGO, PRESTO, REACT, RUBY, SIGNALFX, SORBET, SPLUNK, TERRAFORM, TYPESCRIPT],
+    repositoryLink: null,
+    demoLink: "https://stripe.com/issuing",
+  },
   {
     name: "Macro Tracking App",
     description: "Macronutrition tracking app made using React, Node, and MySQL.",
