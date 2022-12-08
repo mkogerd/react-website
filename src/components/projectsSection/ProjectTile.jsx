@@ -16,7 +16,7 @@ function ProjectTile({ project }) {
         viewport={{ once: true }}
       >
         <ProjectCard raised={true} onClick={() => setShowModal(!showModal)}>
-          <ProjectImage src={project.image} alt={`thumbnail for "${project.name}" project`} />
+          <ProjectImage src={project.imageThumbnail} alt={`thumbnail for "${project.name}" project`} />
           <GradientVeil className='gradient-veil' />
           <CardContent className='card-content'>
             <Typography variant="h3">

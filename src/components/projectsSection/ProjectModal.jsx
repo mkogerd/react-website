@@ -59,7 +59,7 @@ function ProjectModal({ project, closeModal }) {
                     <Typography variant="body2">
                         {project.description}
                     </Typography>
-                    <ProjectImage src={project.image} alt={`"${project.name}"`} />
+                    <ProjectImage src={project.imageMain} alt={`"${project.name}"`} />
                     <Typography variant="h4">
                         About
                     </Typography>
