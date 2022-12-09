@@ -2,6 +2,12 @@
 
 ## How to use this project
 
+To install dependencies for this project, run:
+
+`npm install`
+
+Note: you may have to add the `--legacy-peer-deps` to properly install all modules, i.e., `npm install --legacy-peer-deps`
+
 To host this website locally, you can run:
 
 `npm start`
