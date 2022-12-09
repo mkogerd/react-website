@@ -1,11 +1,15 @@
 const CPP = 'C++';
 const CSS = 'CSS';
+const DJANGO = 'Django';
+const DOCKER = 'Docker';
 const EMBEDDED_SYSTEMS = 'Embedded Systems';
 const FLASK = 'Flask';
 const GRAPHQL = 'GraphQL';
 const HTML = 'HTML';
 const IOT = 'IOT';
+const JAVA = 'Java';
 const JAVASCRIPT = 'Javascript';
+const KAFKA = 'Kafka';
 const MATLAB = 'MATLAB';
 const MONGO = 'MongoDB'
 const MYSQL = 'MySQL';
@@ -18,6 +22,7 @@ const RUBY = 'Ruby';
 const SIGNALFX = 'SignalFX';
 const SORBET = 'Sorbet';
 const SPLUNK = 'Splunk';
+const SPRING = 'Spring';
 const TERRAFORM = 'Terraform';
 const TYPESCRIPT = 'Typescript';
 
@@ -31,6 +36,26 @@ const PROJECT_DATA = [
     technologies: [GRAPHQL, MONGO, PRESTO, REACT, RUBY, SIGNALFX, SORBET, SPLUNK, TERRAFORM, TYPESCRIPT],
     repositoryLink: null,
     demoLink: "https://stripe.com/issuing",
+  },
+  {
+    name: "Indeed Hiring Events",
+    description: "Hosted online and in-person recruiting events.",
+    summary: "I worked on Indeed Hiring Events for about a year. During this time, I helped build and maintain a scalable event-driven notification pipeline for servicing 50k+ Email and SMS messages per day. This involved migrating functionality from a legacy Django monolith into a more manageable and efficient micro-service based architecture.",
+    imageThumbnail: "images/indeed-hiring-events-logo.png",
+    imageMain: "images/indeed-hiring-events.png",
+    technologies: [PYTHON, DJANGO, JAVA, SPRING, MYSQL, DOCKER, TERRAFORM, KAFKA],
+    repositoryLink: null,
+    demoLink: "https://www.indeed.com/employers/hiring-events",
+  },
+  {
+    name: "Indeed Hire",
+    description: "Recruiting services focused on helping employers manage hiring from start to finish.",
+    summary: "I worked on Indeed Hire for almost 2 years. During this time, I maintained and augmented in-house recruiting software, including working with product members to design and implement new features for managing 40k+ daily applicants.",
+    imageThumbnail: "images/indeed-hire-logo.png",
+    imageMain: "images/indeed-hire.png",
+    technologies: [PYTHON, DJANGO, JAVA, JAVASCRIPT, REACT, MYSQL, DOCKER],
+    repositoryLink: null,
+    demoLink: "https://www.indeed.com/hire",
   },
   {
     name: "Macro Tracking App",
