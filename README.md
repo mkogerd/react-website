@@ -27,13 +27,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [Emotion](https://emotion.sh/docs/styled) for component styling.
 
 For a comprehensive list of dependencies, see [package.json](./package.json)
-
-## Features to add before launch
-
-- [x] Rework the contact section to look better on mobile
-- [x] Add edge opacity to the portrait photo to better support dark mode
-- [x] Update project data to include work experience, and filter out any not-so relevant projects
-- [x] Add pills to projects listing technologies used
-- [x] *(Optional) make tiles expand out into broader descriptions of the projects.*
-- [ ] *(Optional) Rework the contact section to include an email submission form*
-- [ ] *(Optional) Migrate to a more visually pleasing font*
