@@ -35,6 +35,7 @@ function ContactSection() {
           />
           <ContactButton
             icon={<LocationOn fontSize="large" />}
+            href='https://goo.gl/maps/YgcwY24guinh5cM18'
             headerLabel='Location'
             subLabel='Austin, TX, USA'
           />
