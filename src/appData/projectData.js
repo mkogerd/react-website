@@ -65,7 +65,7 @@ const PROJECT_DATA = [
     imageMain: "images/macro-lg.png",
     technologies: [REACT, NODE, MYSQL],
     repositoryLink: "https://github.com/mkogerd/macro-tracker",
-    demoLink: "http://macros.mkogerd.com/",
+    demoLink: null,
   },
   {
     name: "Black Hole IO Game",
@@ -75,7 +75,7 @@ const PROJECT_DATA = [
     imageMain: "images/blackhole.png",
     technologies: [HTML, JAVASCRIPT, NODE, MYSQL, DOCKER],
     repositoryLink: "https://github.com/mkogerd/gravity-game",
-    demoLink: "http://game.mkogerd.com/",
+    demoLink: null,
   },
   {
     name: "Database of Dance",
@@ -85,7 +85,7 @@ const PROJECT_DATA = [
     imageMain: "images/dbod.png",
     technologies: [FLASK, PYTHON, JAVASCRIPT, HTML, CSS],
     repositoryLink: "https://github.com/mkogerd/database-of-dance",
-    demoLink: "http://dance.mkogerd.com/",
+    demoLink: null,
   },
   {
     name: "Still-Frame Motion Tracking",
@@ -115,7 +115,7 @@ const PROJECT_DATA = [
     imageMain: "images/desk-red.jpg",
     technologies: [PHP, JAVASCRIPT, HTML, EMBEDDED_SYSTEMS, IOT],
     repositoryLink: "https://github.com/mkogerd/iot-leds",
-    demoLink: "https://mkogerd.com/iot-leds/index.php",
+    demoLink: null,
   },
   {
     name: "Lyric Scroller",
@@ -125,7 +125,7 @@ const PROJECT_DATA = [
     imageMain: "images/lyric-scroll.png",
     technologies: [JAVASCRIPT, HTML, CSS],
     repositoryLink: "https://github.com/mkogerd/lyric-scroll",
-    demoLink: "https://mkogerd.com/lyric-scroll/index.html",
+    demoLink: null,
   },
 ];
 
