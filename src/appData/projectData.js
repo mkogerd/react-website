@@ -13,20 +13,57 @@ const KAFKA = 'Kafka';
 const MATLAB = 'MATLAB';
 const MONGO = 'MongoDB';
 const MYSQL = 'MySQL';
+const HEROKU = 'Heroku';
+const METABASE = 'Metabase';
+const MEZMO = 'Mezmo';
 const NODE = 'Node.js';
+const ONESIGNAL = 'OneSignal';
 const PHP = 'PHP';
+const POSTGRES = 'Postgres';
 const PRESTO = 'Presto';
 const PYTHON = 'Python';
+const RAILS = 'Rails';
 const REACT = 'React';
+const RETOOL = 'Retool';
 const RUBY = 'Ruby';
 const SIGNALFX = 'SignalFX';
 const SORBET = 'Sorbet';
 const SPLUNK = 'Splunk';
 const SPRING = 'Spring';
+const SQUARE = 'Square';
 const TERRAFORM = 'Terraform';
+const TOAST = 'Toast';
+const TWILIO = 'Twilio';
 const TYPESCRIPT = 'Typescript';
+const VERCEL = 'Vercel';
 
 const PROJECT_DATA = [
+  {
+    name: 'Hang',
+    description: 'Next generation loyalty software for businesses.',
+    summary:
+      'During my tenure at Hang, I spearheaded various projects, including the development of a robust user notification system and the Balance-Card feature, which empowered restaurants to reward users with virtual cash balances redeemable at Toast POS. Notable achievements include leading initiatives such as Referral Campaign optimization and contributing significantly to the implementation of a self-service Admin dashboard for partners. I also played a key role in migrating clients, like Ulta Beauty, to our loyalty platform, and contributed to significant enhancements in third-party activity ingestion and system reliability.',
+    imageThumbnail: 'images/hang-logo.png',
+    imageMain: 'images/hang-app.jpeg',
+    technologies: [
+      RUBY,
+      RAILS,
+      REACT,
+      TYPESCRIPT,
+      POSTGRES,
+      SQUARE,
+      TOAST,
+      TWILIO,
+      ONESIGNAL,
+      RETOOL,
+      VERCEL,
+      HEROKU,
+      METABASE,
+      MEZMO,
+    ],
+    repositoryLink: null,
+    demoLink: 'https://hang.com/',
+  },
   {
     name: 'Stripe Issuing',
     description: 'Create physical and virtual cards for your business.',
