@@ -1,8 +1,8 @@
-import { Box, Card, Grid, styled, Typography } from "@mui/material";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import { Box, Card, Grid, styled, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 
-import ProjectModal from "./ProjectModal";
+import ProjectModal from './ProjectModal';
 
 function ProjectTile({ project }) {
   const [showModal, setShowModal] = useState(false);
@@ -16,35 +16,43 @@ function ProjectTile({ project }) {
         viewport={{ once: true }}
       >
         <ProjectCard raised={true} onClick={() => setShowModal(!showModal)}>
-          <ProjectImage src={project.imageThumbnail} alt={`thumbnail for "${project.name}" project`} />
+          <ProjectImage
+            src={project.imageThumbnail}
+            alt={`thumbnail for "${project.name}" project`}
+          />
           <GradientVeil className='gradient-veil' />
           <CardContent className='card-content'>
-            <Typography variant="h3">
-              {project.name}
-            </Typography>
-            <Typography variant="body2">
-              {project.description}
-            </Typography>
+            <Typography variant='h3'>{project.name}</Typography>
+            <Typography variant='body2'>{project.description}</Typography>
             <TechnologyLabels>
-              {project.technologies.map(tech => <TechLabel key={tech}>{tech}</TechLabel>)}
+              {project.technologies.map((tech) => (
+                <TechLabel key={tech}>{tech}</TechLabel>
+              ))}
             </TechnologyLabels>
           </CardContent>
         </ProjectCard>
       </ProjectCardWrapper>
       <AnimatePresence>
-        { showModal && <ProjectModal project={project} closeModal={() => setShowModal(false)} /> }
+        {showModal && (
+          <ProjectModal
+            project={project}
+            closeModal={() => setShowModal(false)}
+          />
+        )}
       </AnimatePresence>
     </Grid>
   );
 }
 
 // this wrapper is a hack to make all of the project tiles have the same height
-const ProjectCardWrapper = motion(styled(Box)({
-  height: 0,
-  width: '100%',
-  paddingBottom: '100%',
-  position: 'relative',
-}));
+const ProjectCardWrapper = motion(
+  styled(Box)({
+    height: 0,
+    width: '100%',
+    paddingBottom: '100%',
+    position: 'relative',
+  })
+);
 
 const projectCardWrapperAnimationVariants = {
   visible: {
@@ -52,20 +60,20 @@ const projectCardWrapperAnimationVariants = {
     y: 0,
     transition: {
       y: {
-        duration: .5,
+        duration: 0.5,
         ease: 'easeOut',
       },
       opacity: {
         duration: 1,
         ease: 'easeOut',
       },
-    }
+    },
   },
   hidden: {
     opacity: 0,
     y: 100,
-  }
-}
+  },
+};
 
 const ProjectCard = styled(Card)({
   textAlign: 'left',
@@ -98,9 +106,14 @@ const GradientVeil = styled(Box)({
   width: '100%',
   height: '100%',
   zIndex: 1,
-  background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.1) 10%, rgb(0 0 0 / 78%) 80%)',
+  background:
+    'linear-gradient(180deg, rgba(0, 0, 0, 0.1) 10%, rgb(0 0 0 / 78%) 80%)',
   opacity: 0.3,
   transition: 'opacity 300ms ease-in-out 0s',
+  '@media (max-width: 600px)': {
+    opacity: 1,
+    transform: 'translateY(0)',
+  },
 });
 
 const CardContent = styled(Box)(({ theme }) => ({
@@ -113,6 +126,10 @@ const CardContent = styled(Box)(({ theme }) => ({
   transform: 'translateY(10%)',
   transition: 'opacity 300ms ease-in-out 0s, transform 300ms ease-in-out 0s;',
   color: 'white',
+  '@media (max-width: 600px)': {
+    opacity: 1,
+    transform: 'translateY(0)',
+  },
 }));
 
 const TechnologyLabels = styled(Box)(({ theme }) => ({
